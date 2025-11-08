@@ -535,6 +535,80 @@
                 grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
             }
         }
+         .gallery-container {
+            perspective: 1000px;
+        }
+
+        .gallery-main {
+            position: relative;
+            width: 300px;
+            height: 400px;
+            margin: 0 auto;
+        }
+
+        .gallery-item {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+
+        .gallery-item.active {
+            opacity: 1;
+        }
+
+        .gallery-item img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        }
+
+        .gallery-thumbnails {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+
+        .gallery-thumb {
+            width: 70px;
+            height: 80px;
+            border-radius: 8px;
+            cursor: pointer;
+            opacity: 0.5;
+            transition: opacity 0.3s;
+            border: 2px solid transparent;
+        }
+
+        .gallery-thumb.active {
+            opacity: 1;
+            border-color: #10b981;
+        }
+
+        .gallery-thumb:hover {
+            opacity: 0.8;
+        }
+
+        .scroll-smooth {
+            scroll-behavior: smooth;
+        }
+
+        .gradient-bg-1 {
+            background: linear-gradient(135deg, #f0fdf4 0%, #e0f2fe 50%, #fce7f3 100%);
+        }
+
+        .gradient-bg-2 {
+            background: linear-gradient(135deg, #fef3c7 0%, #fce7f3 50%, #e0e7ff 100%);
+        }
+
+        .gradient-bg-3 {
+            background: linear-gradient(135deg, #dbeafe 0%, #d1fae5 50%, #fecaca 100%);
+        }
     </style>
 </head>
 <body>
@@ -618,7 +692,7 @@
         <div class="absolute inset-0 bg-white/30"></div>
         <div class="container mx-auto px-4 relative z-10">
             <div class="text-center mb-16">
-                <h2 class="text-4xl font-bold text-gray-800 mb-4">منتجاتنا <span class="text-blue-600">المتميزة</span></h2>
+                <h2 class="text-4xl font-bold text-gray-800 mb-4"> اصناف منتجاتنا <span class="text-blue-600">المتميزة </span></h2>
                 <div class="w-24 h-1 bg-blue-600 mx-auto mb-4"></div>
                 <p class="text-lg text-gray-700 max-w-2xl mx-auto">نقدم تشكيلة واسعة من المنتجات الغذائية التي تلبي جميع الأذواق والاحتياجات الغذائية</p>
             </div>
@@ -734,12 +808,103 @@
             </div>
         </div>
     </section>
+  <!-- Gallery Section -->
+    <section id="gallery" class="py-20 gradient-bg-2 relative overflow-hidden" dir="rtl">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="text-center mb-16 animate-fadeInUp">
+                <h2 class="text-4xl font-bold text-gray-800 mb-4">معرض <span class="text-blue-600">المنتجات</span></h2>
+<div class="w-24 h-1 bg-blue-600 mx-auto mb-4"></div>
+                <p class="text-xl text-gray-700 max-w-2xl mx-auto">
+                    اكتشف مجموعتنا الكاملة من المنتجات الطبيعية والصحية
+                </p>
+            </div>
 
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                <!-- Gallery Main -->
+                <div class="animate-slideInLeft">
+                    <div class="relative">
+                        <div class="absolute inset-0 bg-gradient-to-br from-blue-300 to-cyan-300 rounded-full opacity-30 blur-2xl animate-pulse"></div>
+                        <div class="gallery-container">
+                            <div class="gallery-main mx-auto">
+                                <div class="gallery-item active">
+                                    <img src="water.png" alt="المياه">
+                                </div>
+                                <div class="gallery-item">
+                                    <img src="soda.png" alt="المشروبات الغازية">
+                                </div>
+                                <div class="gallery-item">
+                                    <img src="juice.png" alt="العصائر">
+                                </div>
+                                <div class="gallery-item">
+                                    <img src="milk.png" alt="الألبان">
+                                </div>
+                                <div class="gallery-item">
+                                    <img src="beans.png" alt="البقوليات">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Navigation Buttons -->
+                    <div class="flex justify-between items-center mt-8">
+                        <button onclick="prevGallery()" class="w-12 h-12 rounded-full bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white flex items-center justify-center transition transform hover:scale-110 shadow-lg">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></svg>
+                        </button>
+                        <button onclick="nextGallery()" class="w-12 h-12 rounded-full bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white flex items-center justify-center transition transform hover:scale-110 shadow-lg">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
+                        </button>
+                    </div>
+
+                    <!-- Thumbnails -->
+                    <div class="gallery-thumbnails">
+                        <img src="water.png" alt="المياه" class="gallery-thumb active" onclick="showGalleryItem(0)">
+                        <img src="soda.png" alt="المشروبات الغازية" class="gallery-thumb" onclick="showGalleryItem(1)">
+                        <img src="juice.png" alt="العصائر" class="gallery-thumb" onclick="showGalleryItem(2)">
+                        <img src="milk.png" alt="الألبان" class="gallery-thumb" onclick="showGalleryItem(3)">
+                        <img src="beans.png" alt="البقوليات" class="gallery-thumb" onclick="showGalleryItem(4)">
+                    </div>
+                </div>
+
+                <!-- Gallery Info -->
+                <div class="animate-slideInRight space-y-6">
+                    <div>
+                        <h3 class="text-3xl font-bold text-blue-900 mb-4">منتجاتنا المتنوعة</h3>
+                        <p class="text-gray-700 text-lg leading-relaxed mb-6">
+                            نقدم لك مجموعة متكاملة من المنتجات الغذائية الطبيعية والصحية، كل منتج مصنوع بعناية فائقة ووفقاً لأعلى المعايير العالمية.
+                        </p>
+                    </div>
+
+                    <div class="space-y-4">
+                        <div class="p-4 bg-white/80 backdrop-blur rounded-lg border-l-4 border-emerald-500">
+                            <h4 class="font-bold text-blue-500 mb-2"><i class="fa fa-tint" aria-hidden="true"></i> المياه النقية</h4>
+                            <p class="text-gray-700 text-sm">مياه معالجة بأحدث التقنيات وآمنة تماماً للعائلة</p>
+                        </div>
+                        <div class="p-4 bg-white/80 backdrop-blur rounded-lg border-l-4 border-orange-500">
+                            <h4 class="font-bold text-blue-500 mb-2"><i class="fa fa-wine-glass-alt" aria-hidden="true"></i>  المشروبات الغازية</h4>
+                            <p class="text-gray-700 text-sm">مشروبات منعشة بنكهات طبيعية متنوعة</p>
+                        </div>
+                        <div class="p-4 bg-white/80 backdrop-blur rounded-lg border-l-4 border-yellow-500">
+                            <h4 class="font-bold text-blue-500 mb-2"><i class="fa fa-apple-alt" aria-hidden="true"></i> العصائر الطبيعية</h4>
+                            <p class="text-gray-700 text-sm">عصائر 100% طبيعية بدون مواد حافظة</p>
+                        </div>
+                        <div class="p-4 bg-white/80 backdrop-blur rounded-lg border-l-4 border-pink-500">
+                            <h4 class="font-bold text-blue-500 mb-2"><i class="fa fa-wine-bottle" aria-hidden="true"></i> منتجات الألبان</h4>
+                            <p class="text-gray-700 text-sm">ألبان طازجة وغنية بالكالسيوم والفيتامينات</p>
+                        </div>
+                        <div class="p-4 bg-white/80 backdrop-blur rounded-lg border-l-4 border-green-500">
+                            <h4 class="font-bold text-blue-500 mb-2"><i class="fa fa-seedling "></i> البقوليات</h4>
+                            <p class="text-gray-700 text-sm">بقوليات عالية الجودة غنية بالبروتين</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
     <!-- معرض الصور -->
  <section id="gallery" class="py-20 bg-gradient-to-b from-blue-70 to-blue">
         <div class="container mx-auto px-4">
             <div class="text-center mb-16">
-                <h2 class="text-4xl font-bold text-gray-800 mb-4">معرض <span class="text-blue-600">المنتجات</span></h2>
+                <h2 class="text-4xl font-bold text-gray-800 mb-4"> <span class="text-blue-600">المنتجات</span></h2>
                 <div class="w-24 h-1 bg-blue-600 mx-auto mb-4"></div>
                 <p class="text-lg text-gray-600 max-w-2xl mx-auto">استعرض تشكيلتنا الواسعة من المنتجات الغذائية عالية الجودة</p>
             </div>
@@ -753,7 +918,7 @@
                         <span class="product-badge badge-protein">HIGH PROTEIN</span>
                         <h3 class="product-title">حليب بروتين عالي</h3>
                         <p class="product-subtitle">مصدر غني بالبروتين لبناء العضلات وتعزيز النمو</p>
-                        <div class="brand-name">LACNOR</div>
+                        <div class="brand-name">زمزم يمن</div>
                     </div>
                 </div>
                 
@@ -765,7 +930,7 @@
                         <span class="product-badge badge-calcium">HIGH IN CALCIUM</span>
                         <h3 class="product-title">حليب غني بالكالسيوم</h3>
                         <p class="product-subtitle">يعزز صحة العظام والأسنان ويقوي المناعة</p>
-                        <div class="brand-name">LACNOR</div>
+                        <div class="brand-name">زمزم يمن</div>
                     </div>
                 </div>
                 
@@ -799,7 +964,7 @@
                          alt="جبنة موتزاريلا" class="gallery-image">
                     <div class="gallery-content">
                         <span class="product-badge badge-energy">ENERGY BOOST</span>
-                        <h3 class="product-title">جبنة موتزاريلا</h3>
+                        <h3 class="product-title">حليب طازج</h3>
                         <p class="product-subtitle">مصدر غني بالبروتين والكالسيوم للطاقة</p>
                         <div class="brand-name">زمزم يمن </div>
                     </div>
@@ -823,7 +988,7 @@
                          alt="سلطة طازجة" class="gallery-image">
                     <div class="gallery-content">
                         <span class="product-badge badge-natural">FRESH & HEALTHY</span>
-                        <h3 class="product-title">سلطة طازجة</h3>
+                        <h3 class="product-title">حليب طازج</h3>
                         <p class="product-subtitle">مزيج من الخضروات الطازجة الغنية بالفيتامينات</p>
                         <div class="brand-name">زمزم يمن </div>
                     </div>
@@ -835,7 +1000,7 @@
                          alt="حلويات طبيعية" class="gallery-image">
                     <div class="gallery-content">
                         <span class="product-badge badge-premium">GOURMET</span>
-                        <h3 class="product-title">حلويات طبيعية</h3>
+                        <h3 class="product-title">بقوليات طبيعية</h3>
                         <p class="product-subtitle">محضرة من مكونات طبيعية بنسبة 100%</p>
                         <div class="brand-name"> زمزم يمن</div>
                     </div>
@@ -961,7 +1126,8 @@
             
             <!-- Timeline -->
             <div class="reveal">
-                <h3 class="text-3xl font-bold text-center text-gray-800 mb-12">رحلتنا عبر الزمن</h3>
+                <h3 class="text-3xl font-bold text-center text-gray-800 mb-5">رحلتنا عبر الزمن</h3>
+                <div class="w-24 h-1 bg-blue-600 mx-auto mb-4"></div>
                 <div class="relative max-w-4xl mx-auto timeline-item">
                     <div class="space-y-12">
                         <div class="flex items-center justify-end md:justify-start">
@@ -1267,7 +1433,101 @@
                 this.classList.toggle('flipped');
             });
         });
-        
+         // Gallery functions
+        function showGalleryItem(index) {
+            currentGalleryIndex = index;
+            const items = document.querySelectorAll('.gallery-item');
+            const thumbs = document.querySelectorAll('.gallery-thumb');
+            
+            items.forEach((item, i) => {
+                item.classList.toggle('active', i === index);
+            });
+            
+            thumbs.forEach((thumb, i) => {
+                thumb.classList.toggle('active', i === index);
+            });
+        }
+
+        function nextGallery() {
+            currentGalleryIndex = (currentGalleryIndex + 1) % 5;
+            showGalleryItem(currentGalleryIndex);
+        }
+
+        function prevGallery() {
+            currentGalleryIndex = (currentGalleryIndex - 1 + 5) % 5;
+            showGalleryItem(currentGalleryIndex);
+        }
+        // معرض الصور
+        document.addEventListener('DOMContentLoaded', function() {
+            const galleryItems = document.querySelectorAll('.gallery-card');
+            const modal = document.getElementById('gallery-modal');
+            const modalImage = document.getElementById('modal-image');
+            const closeBtn = document.querySelector('.modal-close');
+            const prevBtn = document.querySelector('.modal-prev');
+            const nextBtn = document.querySelector('.modal-next');
+            
+            let currentIndex = 0;
+            const images = Array.from(galleryItems).map(item => {
+                return item.querySelector('img').src;
+            });
+            
+            // فتح المعرض
+            galleryItems.forEach((item, index) => {
+                item.addEventListener('click', () => {
+                    currentIndex = index;
+                    updateModalImage();
+                    modal.classList.add('active');
+                    document.body.style.overflow = 'hidden';
+                });
+            });
+            
+            // إغلاق المعرض
+            closeBtn.addEventListener('click', () => {
+                modal.classList.remove('active');
+                document.body.style.overflow = 'auto';
+            });
+            
+            // التنقل بين الصور
+            prevBtn.addEventListener('click', () => {
+                currentIndex = (currentIndex - 1 + images.length) % images.length;
+                updateModalImage();
+            });
+            
+            nextBtn.addEventListener('click', () => {
+                currentIndex = (currentIndex + 1) % images.length;
+                updateModalImage();
+            });
+            
+            // إغلاق بالنقر خارج الصورة
+            modal.addEventListener('click', (e) => {
+                if (e.target === modal) {
+                    modal.classList.remove('active');
+                    document.body.style.overflow = 'auto';
+                }
+            });
+            
+            // تحديث الصورة في المودال
+            function updateModalImage() {
+                modalImage.src = images[currentIndex];
+                modalImage.alt = galleryItems[currentIndex].querySelector('img').alt;
+            }
+            
+            // التنقل بالسهمين على الكيبورد
+            document.addEventListener('keydown', (e) => {
+                if (!modal.classList.contains('active')) return;
+                
+                if (e.key === 'ArrowRight') {
+                    currentIndex = (currentIndex - 1 + images.length) % images.length;
+                    updateModalImage();
+                } else if (e.key === 'ArrowLeft') {
+                    currentIndex = (currentIndex + 1) % images.length;
+                    updateModalImage();
+                } else if (e.key === 'Escape') {
+                    modal.classList.remove('active');
+                    document.body.style.overflow = 'auto';
+                }
+            });
+        });
         // Counter Animation
         const counters = document.querySelectorAll('.counter');
         const counterObserver = new IntersectionObserver((entries) => {
