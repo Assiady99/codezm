@@ -262,7 +262,7 @@
         .gradient-text {
             background: linear-gradient(135deg, #1e40af, #3b82f6, #10b981, #f59e0b);
             background-size: 300%;
-            -webkit-background-clip: text;
+            background-clip: text;
             -webkit-text-fill-color: transparent;
             animation: gradientShift 8s ease infinite;
         }
@@ -515,24 +515,48 @@
             .hero-slide {
                 background-position: center center !important;
             }
-            
+
             .hero-text-container {
                 padding: 1.5rem;
                 margin: 0 1rem;
             }
-            
+
             .modal-content {
                 max-width: 95%;
                 max-height: 80%;
             }
-            
+
             .modal-nav {
                 width: 40px;
                 height: 40px;
             }
-            
+
             .gallery-grid {
                 grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            }
+        }
+
+        /* Timeline Responsive Design */
+        @media (max-width: 767px) {
+            .timeline-item {
+                display: flex !important;
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .timeline-item .space-y-12 {
+                display: flex;
+                flex-direction: column;
+                gap: 3rem;
+            }
+
+            .timeline-item .space-y-12 > div {
+                justify-content: flex-start !important;
+                margin-left: 2rem;
+            }
+
+            .timeline-item .space-y-12 > div .glass-card {
+                max-width: 300px;
             }
         }
          .gallery-container {
