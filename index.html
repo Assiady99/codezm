@@ -534,6 +534,140 @@
             .gallery-grid {
                 grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
             }
+
+            /* Hero Section Mobile */
+            .hero-gradient {
+                padding-top: 120px;
+            }
+
+            .hero-gradient h1 {
+                font-size: 3rem !important;
+                line-height: 1.2;
+            }
+
+            .hero-gradient p {
+                font-size: 1.2rem !important;
+                margin-bottom: 2rem;
+            }
+
+            .btn-primary {
+                padding: 0.75rem 1.5rem;
+                font-size: 1rem;
+            }
+
+            /* About Section Mobile */
+            .timeline-item h3 {
+                font-size: 1.5rem;
+            }
+
+            .timeline-item p {
+                font-size: 0.9rem;
+            }
+
+            /* Products Section Mobile */
+            .product-card {
+                height: 250px;
+            }
+
+            .product-front h3 {
+                font-size: 1.5rem;
+            }
+
+            .product-front p {
+                font-size: 0.9rem;
+            }
+
+            /* Gallery Section Mobile */
+            .gallery-main {
+                width: 250px;
+                height: 300px;
+            }
+
+            .gallery-thumbnails {
+                gap: 5px;
+            }
+
+            .gallery-thumb {
+                width: 50px;
+                height: 60px;
+            }
+
+            /* Services Section Mobile */
+            .glass-card h3 {
+                font-size: 1.5rem;
+            }
+
+            .glass-card p {
+                font-size: 0.9rem;
+            }
+
+            /* Contact Section Mobile */
+            .glass-card h3 {
+                font-size: 1.2rem;
+            }
+
+            .glass-card p {
+                font-size: 0.85rem;
+            }
+
+            /* Footer Mobile */
+            footer h3 {
+                font-size: 1.2rem;
+            }
+
+            footer p {
+                font-size: 0.9rem;
+            }
+        }
+
+        /* تحسينات للشاشات الصغيرة جداً */
+        @media (max-width: 480px) {
+            .hero-gradient h1 {
+                font-size: 2.5rem !important;
+            }
+
+            .hero-gradient p {
+                font-size: 1rem !important;
+            }
+
+            .btn-primary {
+                padding: 0.5rem 1rem;
+                font-size: 0.9rem;
+            }
+
+            .timeline-item .glass-card {
+                padding: 1rem;
+            }
+
+            .timeline-item h4 {
+                font-size: 1.1rem;
+            }
+
+            .product-card {
+                height: 200px;
+            }
+
+            .gallery-main {
+                width: 200px;
+                height: 250px;
+            }
+
+            .gallery-grid {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+
+            .gallery-card {
+                max-width: 100%;
+            }
+
+            .product-title {
+                font-size: 1.2rem;
+            }
+
+            .product-subtitle {
+                font-size: 0.85rem;
+            }
         }
 
         /* Timeline Responsive Design */
@@ -551,8 +685,8 @@
             }
 
             .timeline-item .space-y-12 > div {
-                justify-content: flex-start !important;
-                margin-left: 2rem;
+                justify-content: center !important;
+                margin-left: 0;
             }
 
             .timeline-item .space-y-12 > div .glass-card {
@@ -651,20 +785,44 @@
                 <li><a href="#contact" class="hover:text-blue-600 transition">اتصل بنا</a></li>
             </ul>
             
-            <button class="md:hidden text-2xl text-blue-900" id="menuBtn">
+            <button class="md:hidden text-2xl text-blue-900 hover:text-blue-700 transition-colors duration-300" id="menuBtn">
                 <i class="fas fa-bars"></i>
             </button>
         </div>
-        
+
         <!-- Mobile Menu -->
-        <div id="mobileMenu" class="hidden md:hidden mt-4 bg-white rounded-lg shadow-lg p-4 border-4 border-blue-500">
-            <ul class="space-y-3 text-gray-700 font-semibold">
-                <li><a href="#home" class="block hover:text-blue-600 transition">الرئيسية</a></li>
-                <li><a href="#products" class="block hover:text-blue-600 transition">المنتجات</a></li>
-                <li><a href="#about" class="block hover:text-blue-600 transition">من نحن</a></li>
-                <li><a href="#services" class="block hover:text-blue-600 transition">خدماتنا</a></li>
-                <li><a href="#contact" class="block hover:text-blue-600 transition">اتصل بنا</a></li>
+        <div id="mobileMenu" class="hidden md:hidden mt-4 bg-white/95 backdrop-blur-md rounded-2xl shadow-2xl p-6 border border-blue-200 transform transition-all duration-300 ease-in-out opacity-0 scale-95 max-w-xs mx-auto">
+            <!-- Close Button -->
+            <button class="absolute top-4 left-4 text-blue-600 hover:text-blue-800 transition-colors duration-300" id="closeMenuBtn">
+                <i class="fas fa-times text-xl"></i>
+            </button>
+
+            <ul class="space-y-4 text-gray-700 font-semibold pt-8">
+                <li><a href="#home" class="block py-3 px-4 rounded-lg hover:bg-blue-50 hover:text-blue-600 transition-all duration-300 mobile-menu-link">الرئيسية</a></li>
+                <li><a href="#products" class="block py-3 px-4 rounded-lg hover:bg-blue-50 hover:text-blue-600 transition-all duration-300 mobile-menu-link">المنتجات</a></li>
+                <li><a href="#about" class="block py-3 px-4 rounded-lg hover:bg-blue-50 hover:text-blue-600 transition-all duration-300 mobile-menu-link">من نحن</a></li>
+                <li><a href="#services" class="block py-3 px-4 rounded-lg hover:bg-blue-50 hover:text-blue-600 transition-all duration-300 mobile-menu-link">خدماتنا</a></li>
+                <li><a href="#contact" class="block py-3 px-4 rounded-lg hover:bg-blue-50 hover:text-blue-600 transition-all duration-300 mobile-menu-link">اتصل بنا</a></li>
             </ul>
+
+            <!-- Social Links in Mobile Menu -->
+            <div class="mt-6 pt-4 border-t border-gray-200">
+                <p class="text-sm text-gray-500 text-center mb-3">تابعونا</p>
+                <div class="flex justify-center space-x-4">
+                    <a href="#" class="text-blue-600 hover:text-blue-800 transition-colors duration-300">
+                        <i class="fab fa-facebook text-lg"></i>
+                    </a>
+                    <a href="#" class="text-blue-400 hover:text-blue-600 transition-colors duration-300">
+                        <i class="fab fa-twitter text-lg"></i>
+                    </a>
+                    <a href="#" class="text-pink-600 hover:text-pink-800 transition-colors duration-300">
+                        <i class="fab fa-instagram text-lg"></i>
+                    </a>
+                    <a href="#" class="text-green-600 hover:text-green-800 transition-colors duration-300">
+                        <i class="fab fa-whatsapp text-lg"></i>
+                    </a>
+                </div>
+            </div>
         </div>
     </nav>
 
@@ -1436,9 +1594,44 @@
         // Mobile Menu Toggle
         const menuBtn = document.getElementById('menuBtn');
         const mobileMenu = document.getElementById('mobileMenu');
-        
-        menuBtn.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
+        const closeMenuBtn = document.getElementById('closeMenuBtn');
+
+        function toggleMobileMenu() {
+            const isHidden = mobileMenu.classList.contains('hidden');
+            if (isHidden) {
+                // Show menu
+                mobileMenu.classList.remove('hidden');
+                setTimeout(() => {
+                    mobileMenu.classList.remove('opacity-0', 'scale-95');
+                    mobileMenu.classList.add('opacity-100', 'scale-100');
+                }, 10);
+                document.body.style.overflow = 'hidden'; // Prevent background scroll
+            } else {
+                // Hide menu
+                mobileMenu.classList.add('opacity-0', 'scale-95');
+                mobileMenu.classList.remove('opacity-100', 'scale-100');
+                setTimeout(() => {
+                    mobileMenu.classList.add('hidden');
+                }, 300);
+                document.body.style.overflow = 'auto'; // Restore scroll
+            }
+        }
+
+        menuBtn.addEventListener('click', toggleMobileMenu);
+        closeMenuBtn.addEventListener('click', toggleMobileMenu);
+
+        // Close menu when clicking on links
+        document.querySelectorAll('.mobile-menu-link').forEach(link => {
+            link.addEventListener('click', () => {
+                toggleMobileMenu();
+            });
+        });
+
+        // Close menu when clicking outside
+        mobileMenu.addEventListener('click', (e) => {
+            if (e.target === mobileMenu) {
+                toggleMobileMenu();
+            }
         });
         
         // Navbar Scroll Effect
