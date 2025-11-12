@@ -87,7 +87,7 @@
     }
 
     .bg-white\/20 {
-        padding: 0.5rem 1rem !important;
+        height: 6px !important;
     }
 
     #skip-loading {
@@ -116,7 +116,7 @@
     }
 
     .bg-white\/20 {
-        padding: 0.4rem 0.8rem !important;
+        height: 6px !important;
     }
 
     #skip-loading {

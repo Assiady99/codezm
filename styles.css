@@ -864,6 +864,59 @@
         }
 
         /* تحسينات للشاشات الصغيرة جداً */
+        @media (max-width: 640px) {
+            /* Additional improvements for small tablets and large phones */
+            .hero-gradient h1 {
+                font-size: 2.2rem !important;
+            }
+
+            .hero-gradient p {
+                font-size: 1rem !important;
+            }
+
+            .btn-primary {
+                padding: 0.6rem 1.2rem;
+                font-size: 0.85rem;
+            }
+
+            .product-card {
+                height: 220px;
+            }
+
+            .gallery-main {
+                width: 220px;
+                height: 320px;
+            }
+
+            .gallery-thumbnails {
+                gap: 8px;
+            }
+
+            .gallery-thumb {
+                width: 55px;
+                height: 70px;
+            }
+
+            /* Additional small screen fixes */
+            .container {
+                padding-left: 0.75rem;
+                padding-right: 0.75rem;
+            }
+
+            .navbar {
+                padding: 0.75rem;
+            }
+
+            .timeline-item .glass-card {
+                padding: 1.25rem;
+            }
+
+            .modal-content {
+                max-width: 92%;
+                max-height: 85%;
+            }
+        }
+
         @media (max-width: 480px) {
             .hero-gradient h1 {
                 font-size: 2.5rem !important;
